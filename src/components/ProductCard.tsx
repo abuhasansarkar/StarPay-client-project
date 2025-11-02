@@ -45,7 +45,7 @@ export default function ProductCard({
     const type = path.includes("/buy/") ? "buy" : "lease";
 
     return (
-        <div className="bg-[#0B0B0F] text-white rounded-2xl overflow-hidden shadow-lg border border-white/10 flex flex-col transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-[#5B4BFF]/50">
+        <div className=" text-white rounded-2xl overflow-hidden shadow-lg border border-white/10 flex flex-col transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-[#5B4BFF]">
             {/* Image */}
             <div className="relative w-full h-56">
                 <Image
@@ -61,7 +61,7 @@ export default function ProductCard({
             {/* Content */}
             <div className="p-6 flex flex-col grow">
                 <h2 className="text-xl font-semibold">{title}</h2>
-                <p className="text-sm text-gray-300 mt-1 leading-relaxed">
+                <p className="text-md text-gray-300 mt-1 leading-relaxed">
                     {subtitle}
                 </p>
 
@@ -73,18 +73,22 @@ export default function ProductCard({
                 {/* CTA */}
                 <Link
                     href={`/${type}?device=${id}&type=${type}`}
-                    className="mt-3 bg-[#5B4BFF] hover:bg-[#4836ff] transition-colors text-center text-white font-medium py-3 rounded-lg">
+                    className="mt-3 bg-[#5B4BFF] text-center text-white font-medium py-2 rounded-lg 
+             transition-all duration-300 
+             hover:shadow-[0_10px_20px_rgba(91,75,255,0.6)] hover:bg-[#5B4BFF]">
                     {ctaLabel}
                 </Link>
 
-                <p className="text-xs text-gray-400 mt-2">{billingNote}</p>
+                <p className="text-sm text-gray-400 mt-2 text-center">
+                    {billingNote}
+                </p>
 
                 {/* Features */}
                 <div className="mt-6">
-                    <h3 className="text-sm font-semibold mb-3">
+                    <h3 className="text-md font-semibold mb-3">
                         Key Features:
                     </h3>
-                    <ul className="space-y-2 text-sm text-gray-300">
+                    <ul className="space-y-2 text-md text-gray-300">
                         {features.map((feature, index) => (
                             <li key={index} className="flex items-start gap-2">
                                 <Check className="w-4 h-4 text-[#5B4BFF] mt-0.5" />
@@ -95,7 +99,7 @@ export default function ProductCard({
                 </div>
 
                 {/* Quote */}
-                <p className="mt-6 italic text-sm text-gray-400 leading-relaxed">
+                <p className="mt-6 italic text-md text-gray-400 leading-relaxed">
                     “{quote}”
                 </p>
             </div>

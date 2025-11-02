@@ -5,6 +5,7 @@ import TestimonialsSlider from "@/components/(home-sections)/TestimonialsSlider"
 import Pricing from "@/components/(home-sections)/Pricing";
 import Compare from "@/components/(home-sections)/Compare";
 import Faq from "@/components/(home-sections)/Faq";
+import Contact from "@/components/(home-sections)/Contact";
 
 export default function Home() {
     return (
@@ -16,6 +17,7 @@ export default function Home() {
             <Pricing />
             <Compare />
             <Faq />
+            <Contact />
         </div>
     );
 }

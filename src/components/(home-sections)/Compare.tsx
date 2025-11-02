@@ -419,12 +419,12 @@ const Compare = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <a
-                                href="/compare"
+                                href="#pricing"
                                 className="px-8 py-4 rounded-xl bg-[rgb(72,47,234)] text-white text-sm md:text-base font-semibold hover:opacity-90 transition-all">
                                 Compare Models
                             </a>
                             <a
-                                href="/order"
+                                href="/buy"
                                 className="px-8 py-4 rounded-xl bg-black text-white text-sm md:text-base font-semibold hover:bg-gray-800 transition-all">
                                 Order Your POS
                             </a>

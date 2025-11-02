@@ -17,7 +17,7 @@ const OrderForm = () => {
     const sectionRef = useRef<HTMLElement>(null);
 
     const [formData, setFormData] = useState({
-        device: deviceParam || "---",
+        device: deviceParam || "t3-small-smart-pos",
         firstName: "",
         lastName: "",
         email: "",
@@ -61,7 +61,7 @@ const OrderForm = () => {
     ];
 
     const paymentOptions = [
-        {value: "cards", label: "Cards (Vis, Mastercard, etc) - 0.69% 1"},
+        {value: "cards", label: "Cards (Visa, Mastercard, etc) - 0.69%"},
         {value: "dankort", label: "Dankort - 0.3%"},
         {value: "vipps", label: "Vipps/MobilePay - 0.69%"},
         {value: "crypto", label: "Crypto - 0% commission"},
@@ -77,10 +77,62 @@ const OrderForm = () => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<{
+        type: "success" | "error" | null;
+        message: string;
+    }>({type: null, message: ""});
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Form submitted:", {...formData, type: activeTab});
-        // Handle form submission
+        setIsSubmitting(true);
+        setSubmitStatus({type: null, message: ""});
+
+        try {
+            const response = await fetch("/api/order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    ...formData,
+                    type: activeTab,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setSubmitStatus({
+                    type: "success",
+                    message: data.message || "Your inquiry has been submitted successfully!",
+                });
+                // Reset form
+                setFormData({
+                    device: deviceParam || "t3-small-smart-pos",
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phone: "",
+                    businessName: "",
+                    companyNo: "",
+                    message: "",
+                    paymentMethods: [],
+                });
+            } else {
+                setSubmitStatus({
+                    type: "error",
+                    message: data.message || "Failed to submit your inquiry. Please try again.",
+                });
+            }
+        } catch {
+            setSubmitStatus({
+                type: "error",
+                message: "An error occurred. Please try again later.",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -355,7 +407,7 @@ const OrderForm = () => {
 
                                             {/* Toggle Switch */}
                                             <div
-                                                className={`relative w-10 h-6 flex-shrink-0 rounded-full transition-colors duration-300 cursor-pointer ${
+                                                className={`relative w-10 h-6 shrink-0 rounded-full transition-colors duration-300 cursor-pointer ${
                                                     isActive
                                                         ? "bg-green-500"
                                                         : "bg-gray-500"
@@ -384,11 +436,24 @@ const OrderForm = () => {
                             </div>
                         </div>
 
+                        {/* Status Message */}
+                        {submitStatus.type && (
+                            <div
+                                className={`p-4 rounded-lg mb-4 ${
+                                    submitStatus.type === "success"
+                                        ? "bg-green-500/10 border border-green-500 text-green-500"
+                                        : "bg-red-500/10 border border-red-500 text-red-500"
+                                }`}>
+                                {submitStatus.message}
+                            </div>
+                        )}
+
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            className="w-full py-4 bg-[rgb(72,47,234)] text-white font-semibold rounded-lg hover:opacity-90 transition-all hover:scale-[1.02] shadow-lg">
-                            Request Callback
+                            disabled={isSubmitting}
+                            className="w-full py-4 bg-[rgb(72,47,234)] text-white font-semibold rounded-lg hover:opacity-90 transition-all hover:scale-[1.02] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                            {isSubmitting ? "Submitting..." : "Request Callback"}
                         </button>
                     </form>
                 </div>

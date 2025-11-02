@@ -64,7 +64,7 @@ const TestimonialsSlider = () => {
                 }
 
                 .testimonial-scroll-animation {
-                    animation: testimonialSlide 20s linear infinite;
+                    animation: testimonialSlide 15s linear infinite;
                     will-change: transform;
                 }
 
@@ -96,13 +96,13 @@ const TestimonialsSlider = () => {
                     </div>
 
                     {/* Testimonials Slider Container */}
-                    <div className="relative overflow-hidden">
+                    <div className="relative overflow-hidden py-5">
                         {/* Gradient Overlays */}
                         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
                         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
                         {/* Animated Slider */}
-                        <div className="flex gap-6 md:gap-8 testimonial-scroll-animation">
+                        <div className="flex gap-4 md:gap-6 testimonial-scroll-animation">
                             {allTestimonials.map((testimonial, index) => (
                                 <div
                                     key={`${testimonial.id}-${index}`}

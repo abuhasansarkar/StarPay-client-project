@@ -82,22 +82,19 @@ const Hero = () => {
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 md:gap-5 pt-4 md:pt-6 opacity-0 animate-fade-in-up delay-300">
                             <Link
-                                href="/pos"
+                                href="/buy"
                                 className="px-6 py-3 md:px-8 md:py-4 rounded-xl text-white text-sm md:text-base font-semibold transition-all hover:opacity-90 hover:scale-105 shadow-lg bg-[rgb(72,47,234)]">
                                 Get Your Terminal Today
                             </Link>
 
-                            <Link
-                                href="/pricing"
+                            <a
+                                href="#pricing"
                                 className="px-6 py-3 md:px-8 md:py-4 rounded-xl bg-gray-600 text-white text-sm md:text-base font-semibold transition-all hover:bg-gray-700 hover:scale-105 shadow-lg">
                                 See Pricing & Compare
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>
-
-                {/* Bottom Fade Effect */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-white to-transparent" />
             </section>
         </>
     );

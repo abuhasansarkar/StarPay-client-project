@@ -1,17 +1,9 @@
 "use client";
 
-import React, {useState} from "react";
+import React from "react";
 import Link from "next/link";
 
 const Footer = () => {
-    const [email, setEmail] = useState("");
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle newsletter subscription
-        console.log("Newsletter subscription:", email);
-        setEmail("");
-    };
 
     const sectionsLinks = [
         {name: "How It Works", href: "/how-it-works"},
@@ -29,11 +21,20 @@ const Footer = () => {
 
     return (
         <footer className="relative w-full overflow-hidden">
-            {/* Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black to-[#1a0b3d]" />
+            {/* Background Image */}
+            <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat h-full w-full"
+                style={{
+                    backgroundImage: "url('/bg-img.webp')",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                }}
+            />
+            {/* Dark Overlay for better text readability */}
+            {/* <div className="absolute inset-0 bg-black/10" /> */}
 
-            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <div className="relative z-10 container mx-auto px- sm:px-6 lg:px-8 py-16 lg:py-16">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
                     {/* Left Section - Newsletter */}
                     <div className="space-y-6">
                         {/* Heading */}
@@ -48,7 +49,7 @@ const Footer = () => {
                             spam too.
                         </p>
                     </div>
-
+                    <div className="hidden md:block"></div>
                     {/* Right Section - Navigation Links */}
                     <div className="grid grid-cols-2 gap-8 lg:gap-12">
                         {/* Sections Column */}
