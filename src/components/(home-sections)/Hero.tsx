@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BlueButton from "../BlueButton";
 
 const Hero = () => {
     return (
@@ -35,7 +36,7 @@ const Hero = () => {
                 }
             `}</style>
 
-            <section className="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden bg-black">
+            <section className="relative w-full min-h-[600px] md:min-h-[600px] lg:min-h-[700px] overflow-hidden">
                 {/* YouTube Video Background */}
                 <div className="absolute inset-0 w-full h-full">
                     <iframe
@@ -54,15 +55,13 @@ const Hero = () => {
                 <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
                     <div className="flex flex-col items-center justify-center text-center space-y-6 md:space-y-8">
                         {/* Trust Badge */}
-                        <div className="inline-flex items-center px-4 py-2 md:px-6 md:py-2.5 rounded-full text-white text-xs md:text-sm font-medium shadow-lg bg-[rgb(72,47,234)] opacity-0 animate-fade-in-up">
+                        <div className="inline-flex items-center px-4 md:px-6 md:py-2 py-1 rounded-full text-white text-xs md:text-sm font-medium shadow-lg bg-[rgb(72,47,234)] opacity-0 animate-fade-in-up">
                             Trusted in Denmark, Sweden, Norway and Finland
                         </div>
 
                         {/* Main Heading */}
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl  text-white leading-tight max-w-5xl opacity-0 animate-fade-in-up delay-100">
-                            Accept all payments in
-                            <br />
-                            one{" "}
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium text-white leading-tight max-w-5xl opacity-0 animate-fade-in-up delay-100">
+                            Accept all payments in one{" "}
                             <span className="font-bold bg-[rgb(72,47,234)] px-2 rounded-md text-white">
                                 POS
                             </span>{" "}
@@ -83,15 +82,21 @@ const Hero = () => {
                         <div className="flex flex-col sm:flex-row gap-4 md:gap-5 pt-4 md:pt-6 opacity-0 animate-fade-in-up delay-300">
                             <Link
                                 href="/buy"
-                                className="px-6 py-3 md:px-8 md:py-4 rounded-xl text-white text-sm md:text-base font-semibold transition-all hover:opacity-90 hover:scale-105 shadow-lg bg-[rgb(72,47,234)]">
+                                className="px-6 py-2 md:py-3 border-2 border-[#5B4BFF] text-white rounded-lg 
+                  font-medium transition-all duration-300
+                 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
+                  focus:outline-none focus:ring-2 text-center text-lg">
                                 Get Your Terminal Today
                             </Link>
 
-                            <a
+                            <Link
                                 href="#pricing"
-                                className="px-6 py-3 md:px-8 md:py-4 rounded-xl bg-gray-600 text-white text-sm md:text-base font-semibold transition-all hover:bg-gray-700 hover:scale-105 shadow-lg">
+                                className="px-6 py-2 md:py-3 border-2 border-white hover:border-black text-white rounded-lg 
+                  font-medium transition-all duration-300
+                  hover:bg-black hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
+                  focus:outline-none focus:ring-2 text-center text-lg">
                                 See Pricing & Compare
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

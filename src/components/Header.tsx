@@ -8,14 +8,16 @@ const Header = () => {
 
     const navLinks = [
         {name: "Home", href: "/"},
-        {name: "Services", href: "/services"},
-        {name: "About", href: "/about"},
-        {name: "Contact", href: "/contact"},
+        {name: "Works", href: "#works"},
+        {name: "Products", href: "#product"},
+        {name: "Testimonials", href: "#testimonials"},
+        {name: "Compare Pricing", href: "#compare"},
+        {name: "FAQ", href: "#faq"},
     ];
 
     return (
         <header
-            className="sticky top-0 z-50 w-full border-b transition-colors duration-300"
+            className="sticky top-0 z-50 w-full border-b transition-colors duration-300 bg-black py-2"
             style={{
                 backgroundColor: "var(--header-bg)",
                 borderColor: "var(--border)",
@@ -40,7 +42,7 @@ const Header = () => {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-sm font-medium transition-opacity hover:opacity-70"
+                                    className="text-md font-medium transition-opacity"
                                     style={{color: "var(--header-text)"}}>
                                     {link.name}
                                 </Link>
@@ -88,15 +90,16 @@ const Header = () => {
                             {/* Button 1 */}
                             <Link
                                 href="/buy"
-                                className=" bg-[rgb(72,47,234)] hidden md:block px-4 py-2 rounded-lg text-white font-medium transition-all hover:opacity-90">
+                                className="text-lg mr-3 border-2 border-[#5B4BFF] bg-[#5B4BFF] hidden md:block px-4 py-1 rounded-lg text-white font-semibold transition-all hover:opacity-90">
                                 Get Your POS Today
                             </Link>
 
                             {/* Button 2 */}
                             <Link
                                 href="/login"
-                                className="px-4 py-2 rounded-lg font-medium transition-all hover:opacity-70"
-                                style={{color: "var(--header-text)"}}>
+                                className="text-lg px-6 py-1 border-2 border-white/20 text-white rounded-lg 
+                  font-medium transition-all duration-300
+                  hover:bg-black hover:text-white hover:border-[#5B4BFF] ">
                                 Sign In
                             </Link>
                         </div>

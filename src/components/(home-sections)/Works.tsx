@@ -74,7 +74,7 @@ const Works = () => {
 
             <section
                 ref={sectionRef}
-                className="w-full py-16 md:py-20 lg:py-28 bg-white overflow-hidden">
+                className="w-full py-16 md:py-20 lg:py-20 bg-white overflow-hidden">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header */}
                     <div
@@ -96,7 +96,7 @@ const Works = () => {
                         {stepsData.map((step, index) => (
                             <div
                                 key={step.id}
-                                className={`bg-white border border-gray-200 rounded-3xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${
+                                className={`bg-white border border-gray-200 hover:border-[rgb(72,47,234)] rounded-3xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${
                                     isVisible
                                         ? "opacity-100 animate-fade-in-up"
                                         : "opacity-0"
@@ -129,7 +129,7 @@ const Works = () => {
                                     <h3 className="text-xl lg:text-2xl font-bold text-black mb-3">
                                         {step.title}
                                     </h3>
-                                    <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
+                                    <p className="text-gray-600 text-lg leading-relaxed">
                                         {step.description}
                                     </p>
                                 </div>

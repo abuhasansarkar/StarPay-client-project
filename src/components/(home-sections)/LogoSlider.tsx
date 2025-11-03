@@ -43,10 +43,10 @@ const LogoSlider = () => {
                 }
             `}</style>
 
-            <section className="w-full py-16 md:py-20 lg:py-24 overflow-hidden bg-white border-b border-gray-200">
+            <section className="w-full py-12 md:py-16 lg:py-20 overflow-hidden bg-white border-b border-gray-200">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Heading */}
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-center mb-12 md:mb-16 text-black">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-center mb-6 md:mb-10 text-black">
                         Helping people stay organised from
                     </h2>
 

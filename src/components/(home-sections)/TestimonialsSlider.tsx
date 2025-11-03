@@ -64,7 +64,7 @@ const TestimonialsSlider = () => {
                 }
 
                 .testimonial-scroll-animation {
-                    animation: testimonialSlide 15s linear infinite;
+                    animation: testimonialSlide 10s linear infinite;
                     will-change: transform;
                 }
 
@@ -74,15 +74,15 @@ const TestimonialsSlider = () => {
 
                 @media (max-width: 768px) {
                     .testimonial-scroll-animation {
-                        animation: testimonialSlide 30s linear infinite;
+                        animation: testimonialSlide 5s linear infinite;
                     }
                 }
             `}</style>
 
-            <section className="w-full py-16 md:py-20 lg:py-28 bg-white overflow-hidden">
+            <section className="w-full py-12 md:py-16 lg:py-20 bg-white overflow-hidden">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Badge and Heading */}
-                    <div className="flex flex-col items-center text-center mb-12 md:mb-16">
+                    <div className="flex flex-col items-center text-center mb-8 md:mb-10">
                         <div className="inline-flex items-center px-5 py-2 rounded-full bg-black text-white text-xs md:text-sm font-medium mb-6">
                             Testimonials
                         </div>

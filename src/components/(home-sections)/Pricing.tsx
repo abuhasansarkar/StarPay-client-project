@@ -1,6 +1,8 @@
 "use client";
 
 import React, {useEffect, useRef, useState} from "react";
+import Image from "next/image";
+import Link from "next/link";
 import ProductCard from "../ProductCard";
 
 const products = {
@@ -160,10 +162,20 @@ const products = {
     ],
 };
 
-const Pricing = () => {
+export default function Pricing() {
     const [activeTab, setActiveTab] = useState<"buy" | "lease">("buy");
     const [isVisible, setIsVisible] = useState(false);
+    const [isTransitioning, setIsTransitioning] = useState(false);
     const sectionRef = useRef<HTMLElement>(null);
+
+    const handleTabChange = (tab: "buy" | "lease") => {
+        if (tab === activeTab) return;
+        setIsTransitioning(true);
+        setTimeout(() => {
+            setActiveTab(tab);
+            setTimeout(() => setIsTransitioning(false), 50);
+        }, 200);
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -188,9 +200,62 @@ const Pricing = () => {
     }, []);
 
     const currentProducts = products[activeTab];
+    const firstThreeProducts = currentProducts.slice(0, 3);
+    const lastProduct = currentProducts[3];
+    const type = activeTab;
 
     return (
         <>
+            <style jsx global>{`
+                @keyframes orb-float-1 {
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1) rotate(0deg);
+                        opacity: 0.5;
+                    }
+                    33% {
+                        transform: translate(25px, -20px) scale(1.2)
+                            rotate(120deg);
+                        opacity: 0.75;
+                    }
+                    66% {
+                        transform: translate(-15px, 15px) scale(1.05)
+                            rotate(240deg);
+                        opacity: 0.6;
+                    }
+                }
+
+                @keyframes orb-float-2 {
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1) rotate(0deg);
+                        opacity: 0.45;
+                    }
+                    40% {
+                        transform: translate(-30px, 25px) scale(1.25)
+                            rotate(-90deg);
+                        opacity: 0.7;
+                    }
+                    70% {
+                        transform: translate(20px, -15px) scale(1.1)
+                            rotate(-180deg);
+                        opacity: 0.55;
+                    }
+                }
+
+                @keyframes orb-float-3 {
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1) rotate(0deg);
+                        opacity: 0.5;
+                    }
+                    50% {
+                        transform: translate(15px, 30px) scale(1.15)
+                            rotate(45deg);
+                        opacity: 0.75;
+                    }
+                }
+            `}</style>
             <section
                 id="pricing"
                 ref={sectionRef}
@@ -227,10 +292,11 @@ const Pricing = () => {
                         </p>
 
                         {/* Buy/Lease Tabs */}
-                        <div className="inline-flex bg-white rounded-lg p-1">
+                        <div className="inline-flex bg-white rounded-full p-1">
                             <button
-                                onClick={() => setActiveTab("buy")}
-                                className={`px-8 py-3 rounded-md text-sm md:text-base font-semibold transition-all cursor-pointer ${
+                                type="button"
+                                onClick={() => handleTabChange("buy")}
+                                className={`px-12 py-3 cursor-pointer rounded-full text-sm md:text-base font-semibold transition-all ${
                                     activeTab === "buy"
                                         ? "bg-[rgb(72,47,234)] text-white"
                                         : "bg-transparent text-black hover:bg-gray-100"
@@ -238,8 +304,9 @@ const Pricing = () => {
                                 Buy
                             </button>
                             <button
-                                onClick={() => setActiveTab("lease")}
-                                className={`px-8 py-3 rounded-md text-sm md:text-base font-semibold transition-all cursor-pointer ${
+                                type="button"
+                                onClick={() => handleTabChange("lease")}
+                                className={`px-12 py-3 cursor-pointer rounded-full text-sm md:text-base font-semibold transition-all ${
                                     activeTab === "lease"
                                         ? "bg-[rgb(72,47,234)] text-white"
                                         : "bg-transparent text-black hover:bg-gray-100"
@@ -249,13 +316,18 @@ const Pricing = () => {
                         </div>
                     </div>
 
-                    {/* Product Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 max-w-[95%] mx-auto">
-                        {currentProducts.map((product, index) => (
+                    {/* First Three Product Cards Grid */}
+                    <div
+                        className={`grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-[95%] mx-auto mb-6 transition-all duration-300 ${
+                            isTransitioning
+                                ? "opacity-0 scale-95"
+                                : "opacity-100 scale-100"
+                        }`}>
+                        {firstThreeProducts.map((product, index) => (
                             <div
                                 key={product.id}
-                                className={`${
-                                    isVisible
+                                className={`transition-all duration-500 ${
+                                    isVisible && !isTransitioning
                                         ? "opacity-100 animate-fade-in-scale"
                                         : "opacity-0"
                                 }`}
@@ -266,10 +338,149 @@ const Pricing = () => {
                             </div>
                         ))}
                     </div>
+
+                    {/* Last Product - Full Width Horizontal Layout */}
+                    <div
+                        className={`max-w-[95%] mx-auto transition-all duration-300 ${
+                            isTransitioning
+                                ? "opacity-0 scale-95"
+                                : isVisible
+                                ? "opacity-100 animate-fade-in-scale"
+                                : "opacity-0"
+                        }`}
+                        style={{animationDelay: "0.6s"}}>
+                        <div className="relative group text-white rounded-2xl overflow-hidden shadow-lg border border-white/10 flex flex-col md:flex-row transition-all duration-500 hover:shadow-2xl hover:border-[#5B4BFF]">
+                            {/* Animated Gradient Backgrounds */}
+                            <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                                {/* Orb 1 - Purple (Top/Left Area) */}
+                                <div
+                                    className="absolute"
+                                    style={{
+                                        width: "200px",
+                                        height: "200px",
+                                        borderRadius: "40%",
+                                        background:
+                                            "radial-gradient(circle, rgba(139,92,246,0.8) 0%, rgba(124,58,237,0.6) 40%, rgba(91,75,255,0.4) 70%, transparent 100%)",
+                                        top: "10%",
+                                        left: "15%",
+                                        filter: "blur(70px)",
+                                        animation:
+                                            "orb-float-1 8s ease-in-out infinite",
+                                    }}
+                                />
+
+                                {/* Orb 2 - Purple (Middle Area) */}
+                                <div
+                                    className="absolute"
+                                    style={{
+                                        width: "160px",
+                                        height: "160px",
+                                        borderRadius: "50%",
+                                        background:
+                                            "radial-gradient(circle, rgba(168,85,247,0.7) 0%, rgba(147,51,234,0.5) 50%, rgba(126,34,206,0.3) 80%, transparent 100%)",
+                                        top: "45%",
+                                        left: "50%",
+                                        filter: "blur(65px)",
+                                        animation:
+                                            "orb-float-2 12s ease-in-out infinite 1.5s",
+                                    }}
+                                />
+
+                                {/* Orb 3 - Blue (Bottom Right Area) */}
+                                <div
+                                    className="absolute"
+                                    style={{
+                                        width: "220px",
+                                        height: "220px",
+                                        borderRadius: "45%",
+                                        background:
+                                            "radial-gradient(circle, rgba(59,130,246,0.75) 0%, rgba(37,99,235,0.55) 45%, rgba(29,78,216,0.35) 75%, transparent 100%)",
+                                        bottom: "5%",
+                                        right: "5%",
+                                        filter: "blur(80px)",
+                                        animation:
+                                            "orb-float-3 10s ease-in-out infinite 2s",
+                                    }}
+                                />
+                            </div>
+
+                            {/* Image - Left Side */}
+                            <div className="relative w-full md:w-1/2 h-64 md:h-auto z-10 overflow-hidden">
+                                <Image
+                                    src={lastProduct.imageSrc}
+                                    alt={lastProduct.title}
+                                    fill
+                                    className="object-cover transition-transform duration-500  group-hover:scale-110"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority
+                                />
+                            </div>
+
+                            {/* Content - Right Side */}
+                            <div className="p-6 md:p-8 flex flex-col grow md:w-1/2 relative z-10">
+                                <h2 className="text-xl md:text-3xl lg:text-4xl font-semibold">
+                                    {lastProduct.title}
+                                </h2>
+                                <p className="text-base md:text-lg lg:text-xl text-gray-300 mt-2 leading-relaxed">
+                                    {lastProduct.subtitle}
+                                </p>
+
+                                {/* Price */}
+                                <div className="mt-5 text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                                    {lastProduct.price}
+                                </div>
+
+                                {/* CTA */}
+                                <Link
+                                    href={`/${type}?device=${lastProduct.id}&type=${type}`}
+                                    className="mt-3 px-6 py-2 md:py-3 border-2 border-[#5B4BFF] text-white rounded-lg 
+                  font-medium transition-all duration-300
+                 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
+                  focus:outline-none focus:ring-2 text-center text-lg">
+                                    {lastProduct.ctaLabel}
+                                </Link>
+
+                                <p className="text-sm md:text-base text-gray-400 mt-2 text-center">
+                                    {lastProduct.billingNote}
+                                </p>
+
+                                {/* Features */}
+                                <div className="mt-6">
+                                    <h3 className="text-lg md:text-xl font-semibold mb-3">
+                                        Key Features:
+                                    </h3>
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-base md:text-lg text-gray-300">
+                                        {lastProduct.features.map(
+                                            (feature, index) => (
+                                                <li
+                                                    key={index}
+                                                    className="flex items-start gap-2">
+                                                    <svg
+                                                        className="w-5 h-5 md:w-6 md:h-6 text-[#5B4BFF] mt-0.5 shrink-0"
+                                                        fill="currentColor"
+                                                        viewBox="0 0 20 20">
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                            clipRule="evenodd"
+                                                        />
+                                                    </svg>
+                                                    <span>{feature}</span>
+                                                </li>
+                                            )
+                                        )}
+                                    </ul>
+                                </div>
+
+                                {/* Quote */}
+                                <p className="mt-6 italic text-md md:text-lg text-gray-400 leading-relaxed">
+                                    {lastProduct.quote}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </>
     );
-};
-
-export default Pricing;
+}

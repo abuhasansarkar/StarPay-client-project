@@ -88,6 +88,14 @@ const OrderForm = () => {
         setIsSubmitting(true);
         setSubmitStatus({type: null, message: ""});
 
+        // Console log all form data
+        console.log("=== Order Form Submission ===");
+        console.log("Form Data:", {
+            ...formData,
+            type: activeTab,
+        });
+        console.log("===========================");
+
         try {
             const response = await fetch("/api/order", {
                 method: "POST",
@@ -105,7 +113,9 @@ const OrderForm = () => {
             if (response.ok) {
                 setSubmitStatus({
                     type: "success",
-                    message: data.message || "Your inquiry has been submitted successfully!",
+                    message:
+                        data.message ||
+                        "Your inquiry has been submitted successfully!",
                 });
                 // Reset form
                 setFormData({
@@ -122,7 +132,9 @@ const OrderForm = () => {
             } else {
                 setSubmitStatus({
                     type: "error",
-                    message: data.message || "Failed to submit your inquiry. Please try again.",
+                    message:
+                        data.message ||
+                        "Failed to submit your inquiry. Please try again.",
                 });
             }
         } catch {
@@ -152,13 +164,79 @@ const OrderForm = () => {
                 .animate-fade-in-up {
                     animation: fadeInUp 0.8s ease-out forwards;
                 }
+
+                @keyframes orb-float-1 {
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1) rotate(0deg);
+                        opacity: 0.5;
+                    }
+                    33% {
+                        transform: translate(25px, -20px) scale(1.2)
+                            rotate(120deg);
+                        opacity: 0.75;
+                    }
+                    66% {
+                        transform: translate(-15px, 15px) scale(1.05)
+                            rotate(240deg);
+                        opacity: 0.6;
+                    }
+                }
+
+                @keyframes orb-float-2 {
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1) rotate(0deg);
+                        opacity: 0.5;
+                    }
+                    50% {
+                        transform: translate(15px, 30px) scale(1.15)
+                            rotate(45deg);
+                        opacity: 0.75;
+                    }
+                }
             `}</style>
 
             <section
                 id="contact"
                 ref={sectionRef}
-                className="w-full py-16 md:py-20 lg:py-28 bg-black text-white">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                className="relative w-full py-12 md:py-16 lg:py-20 bg-black text-white overflow-hidden">
+                {/* Animated Gradient Orbs */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    {/* Orb 1 - Purple (Top Left) */}
+                    <div
+                        className="absolute"
+                        style={{
+                            width: "600px",
+                            height: "600px",
+                            borderRadius: "40%",
+                            background:
+                                "radial-gradient(circle, rgba(139,92,246,0.8) 0%, rgba(124,58,237,0.6) 40%, rgba(91,75,255,0.4) 70%, transparent 100%)",
+                            top: "-15%",
+                            left: "-10%",
+                            filter: "blur(90px)",
+                            animation: "orb-float-1 8s ease-in-out infinite",
+                        }}
+                    />
+
+                    {/* Orb 2 - Blue (Top Right) */}
+                    <div
+                        className="absolute"
+                        style={{
+                            width: "550px",
+                            height: "550px",
+                            borderRadius: "45%",
+                            background:
+                                "radial-gradient(circle, rgba(59,130,246,0.75) 0%, rgba(37,99,235,0.55) 45%, rgba(29,78,216,0.35) 75%, transparent 100%)",
+                            top: "-10%",
+                            right: "-10%",
+                            filter: "blur(85px)",
+                            animation:
+                                "orb-float-2 10s ease-in-out infinite 2s",
+                        }}
+                    />
+                </div>
+                <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header */}
                     <div
                         className={`flex flex-col items-center text-center mb-12 md:mb-16 max-w-4xl mx-auto ${
@@ -190,24 +268,24 @@ const OrderForm = () => {
                         style={{animationDelay: "0.2s"}}>
                         {/* Buy/Lease Tabs */}
                         <div className="flex justify-center mb-8">
-                            <div className="inline-flex bg-white rounded-lg p-1">
+                            <div className="inline-flex bg-white rounded-full p-1">
                                 <button
                                     type="button"
                                     onClick={() => setActiveTab("buy")}
-                                    className={`px-12 py-3 rounded-md text-sm md:text-base font-semibold transition-all ${
+                                    className={`px-12 py-3 cursor-pointer rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
                                         activeTab === "buy"
-                                            ? "bg-[rgb(72,47,234)] text-white"
-                                            : "bg-transparent text-black hover:bg-gray-100"
+                                            ? "bg-[rgb(72,47,234)] text-white scale-105 shadow-lg"
+                                            : "bg-transparent text-black hover:bg-gray-100 scale-100"
                                     }`}>
                                     Buy
                                 </button>
                                 <button
                                     type="button"
                                     onClick={() => setActiveTab("lease")}
-                                    className={`px-12 py-3 rounded-md text-sm md:text-base font-semibold transition-all ${
+                                    className={`px-12 py-3 cursor-pointer rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
                                         activeTab === "lease"
-                                            ? "bg-[rgb(72,47,234)] text-white"
-                                            : "bg-transparent text-black hover:bg-gray-100"
+                                            ? "bg-[rgb(72,47,234)] text-white scale-105 shadow-lg"
+                                            : "bg-transparent text-black hover:bg-gray-100 scale-100"
                                     }`}>
                                     Lease
                                 </button>
@@ -216,7 +294,7 @@ const OrderForm = () => {
 
                         {/* Device Dropdown */}
                         <div className="mb-6">
-                            <label className="block text-sm font-medium mb-2">
+                            <label className="block text-base md:text-lg font-medium mb-2">
                                 Devices <span className="text-red-500">*</span>
                             </label>
                             <select
@@ -227,7 +305,7 @@ const OrderForm = () => {
                                         device: e.target.value,
                                     })
                                 }
-                                className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white focus:border-[rgb(72,47,234)] focus:outline-none transition-colors"
+                                className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50"
                                 required>
                                 {devices.map((device) => (
                                     <option
@@ -243,7 +321,7 @@ const OrderForm = () => {
                         {/* Name Fields */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
-                                <label className="block text-sm font-medium mb-2">
+                                <label className="block text-base md:text-lg font-medium mb-2">
                                     First Name{" "}
                                     <span className="text-red-500">*</span>
                                 </label>
@@ -257,12 +335,12 @@ const OrderForm = () => {
                                             firstName: e.target.value,
                                         })
                                     }
-                                    className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:outline-none transition-colors"
+                                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50"
                                     required
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-2">
+                                <label className="block text-base md:text-lg font-medium mb-2">
                                     Last Name
                                 </label>
                                 <input
@@ -275,7 +353,7 @@ const OrderForm = () => {
                                             lastName: e.target.value,
                                         })
                                     }
-                                    className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:outline-none transition-colors"
+                                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50"
                                 />
                             </div>
                         </div>
@@ -283,7 +361,7 @@ const OrderForm = () => {
                         {/* Email and Phone */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
-                                <label className="block text-sm font-medium mb-2">
+                                <label className="block text-base md:text-lg font-medium mb-2">
                                     Email{" "}
                                     <span className="text-red-500">*</span>
                                 </label>
@@ -297,12 +375,12 @@ const OrderForm = () => {
                                             email: e.target.value,
                                         })
                                     }
-                                    className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:outline-none transition-colors"
+                                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50"
                                     required
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-2">
+                                <label className="block text-base md:text-lg font-medium mb-2">
                                     Phone Number{" "}
                                     <span className="text-red-500">*</span>
                                 </label>
@@ -316,7 +394,7 @@ const OrderForm = () => {
                                             phone: e.target.value,
                                         })
                                     }
-                                    className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:outline-none transition-colors"
+                                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50"
                                     required
                                 />
                             </div>
@@ -325,7 +403,7 @@ const OrderForm = () => {
                         {/* Business Name and Company No */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
-                                <label className="block text-sm font-medium mb-2">
+                                <label className="block text-base md:text-lg font-medium mb-2">
                                     Business name
                                 </label>
                                 <input
@@ -338,11 +416,11 @@ const OrderForm = () => {
                                             businessName: e.target.value,
                                         })
                                     }
-                                    className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:outline-none transition-colors"
+                                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50"
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-2">
+                                <label className="block text-base md:text-lg font-medium mb-2">
                                     Company No.
                                 </label>
                                 <input
@@ -355,13 +433,13 @@ const OrderForm = () => {
                                             companyNo: e.target.value,
                                         })
                                     }
-                                    className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:outline-none transition-colors"
+                                    className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50"
                                 />
                             </div>
                         </div>
                         {/* Message  */}
                         <div className="mb-6">
-                            <label className="block text-sm font-medium mb-2">
+                            <label className="block text-base md:text-lg font-medium mb-2">
                                 Write your message.
                             </label>
                             <textarea
@@ -373,13 +451,13 @@ const OrderForm = () => {
                                         message: e.target.value,
                                     })
                                 }
-                                className="w-full px-4 py-3 bg-transparent border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:outline-none transition-colors"
+                                className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50 min-h-[120px] resize-y"
                             />
                         </div>
 
                         {/* Payment Methods */}
                         <div className="mb-8">
-                            <label className="block text-sm font-medium mb-4 text-white">
+                            <label className="block text-base md:text-lg font-medium mb-4 text-white">
                                 Select Payment Methods
                             </label>
 
@@ -453,7 +531,9 @@ const OrderForm = () => {
                             type="submit"
                             disabled={isSubmitting}
                             className="w-full py-4 bg-[rgb(72,47,234)] text-white font-semibold rounded-lg hover:opacity-90 transition-all hover:scale-[1.02] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
-                            {isSubmitting ? "Submitting..." : "Request Callback"}
+                            {isSubmitting
+                                ? "Submitting..."
+                                : "Request Callback"}
                         </button>
                     </form>
                 </div>

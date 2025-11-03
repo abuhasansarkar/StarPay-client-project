@@ -78,11 +78,45 @@ const Faq = () => {
                 .animate-fade-in-stagger {
                     animation: fadeInStagger 0.6s ease-out forwards;
                 }
+
+                @keyframes slideDown {
+                    from {
+                        opacity: 0;
+                        max-height: 0;
+                        transform: translateY(-10px);
+                    }
+                    to {
+                        opacity: 1;
+                        max-height: 500px;
+                        transform: translateY(0);
+                    }
+                }
+
+                @keyframes slideUp {
+                    from {
+                        opacity: 1;
+                        max-height: 500px;
+                        transform: translateY(0);
+                    }
+                    to {
+                        opacity: 0;
+                        max-height: 0;
+                        transform: translateY(-10px);
+                    }
+                }
+
+                .accordion-content-enter {
+                    animation: slideDown 0.3s ease-out forwards;
+                }
+
+                .accordion-content-exit {
+                    animation: slideUp 0.3s ease-out forwards;
+                }
             `}</style>
 
             <section
                 ref={sectionRef}
-                className="w-full py-16 md:py-20 lg:py-28 bg-white">
+                className="w-full py-12 md:py-16 lg:py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header */}
                     <div
@@ -118,22 +152,32 @@ const Faq = () => {
                                 }}>
                                 <button
                                     onClick={() => handleToggle(index)}
-                                    className="w-full flex items-center justify-between px-6 md:px-8 py-5 md:py-6 text-left hover:bg-gray-900 transition-colors">
-                                    <span className="text-base md:text-lg font-medium text-white pr-4">
+                                    className="w-full flex items-center justify-between px-4 md:px-6 py-3 text-left hover:bg-black cursor-pointer transition-colors">
+                                    <span className="text-lg md:text-xl font-medium text-white pr-4">
                                         {index + 1}. {faq.question}
                                     </span>
-                                    <span className="text-2xl font-light text-white shrink-0">
+                                    <span
+                                        className={`text-4xl font-light text-white shrink-0 transition-transform duration-300 ${
+                                            openIndex === index
+                                                ? "rotate-180"
+                                                : "rotate-0"
+                                        }`}>
                                         {openIndex === index ? "−" : "+"}
                                     </span>
                                 </button>
 
-                                {openIndex === index && (
-                                    <div className="px-6 md:px-8 py-5 md:py-6 bg-white border-t border-gray-300">
-                                        <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                                <div
+                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                                        openIndex === index
+                                            ? "max-h-96 opacity-100"
+                                            : "max-h-0 opacity-0"
+                                    }`}>
+                                    <div className="p-3 bg-black pt-0">
+                                        <p className="text-sm md:text-lg text-black leading-relaxed p-3 px-4 bg-white rounded-xl">
                                             {faq.answer}
                                         </p>
                                     </div>
-                                )}
+                                </div>
                             </div>
                         ))}
                     </div>
