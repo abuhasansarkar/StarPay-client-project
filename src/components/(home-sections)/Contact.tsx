@@ -163,7 +163,7 @@ const Contact = () => {
                         }}
                     /> */}
                 </div>
-                <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
                     <div
                         className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 ${
                             isVisible
@@ -191,18 +191,25 @@ const Contact = () => {
                                 <div className="space-y-3">
                                     <div className="flex items-center gap-3 text-gray-300">
                                         <Phone className="w-5 h-5" />
-                                        <span>+45 1234 5678</span>
+                                        <Link href={"tel:+45 1234 5678"}>
+                                            +45 1234 5678
+                                        </Link>
                                     </div>
                                     <div className="flex items-center gap-3 text-gray-300">
                                         <Mail className="w-5 h-5" />
-                                        <span>support@starpayments.eu</span>
+                                        <Link
+                                            href={
+                                                "mailto:support@starpayments.eu"
+                                            }>
+                                            support@starpayments.eu
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
 
                             <Link
                                 href="#pricing"
-                                className="inline-block px-8 py-3 bg-[#5B4BFF] text-white font-semibold rounded-lg hover:bg-[#7C3AED] transition-all duration-300 shadow-lg w-fit">
+                                className="mt-3 px-6 py-2 md:py-2.5 border-2 border-[#5B4BFF] text-white rounded-lg font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] focus:outline-none focus:ring-2 text-center text-lg w-fit">
                                 Get Your Terminal Today
                             </Link>
                         </div>
@@ -318,7 +325,7 @@ const Contact = () => {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full py-4 bg-[#5B4BFF] text-white font-semibold rounded-lg hover:bg-[#7C3AED] transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                                    className="w-full mt-3 px-6 py-2 md:py-2.5 border-2 border-[#5B4BFF] text-white rounded-lg font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] focus:outline-none focus:ring-2 text-center text-lg cursor-pointer disabled:opacity-50 ">
                                     {isSubmitting
                                         ? "Sending..."
                                         : "Send Message"}

@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed header */
+}
+
+/* Smooth scroll for all anchor links */
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
+
+/* Click Animation */
+.click-animation:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease-in-out;
+}
+
+/* Button Active State Animation */
+button:active,
+a:active {
+  transform: scale(0.98);
+}
+
 :root {
   --primary: rgb(72 47 234);
   --background: #ffffff;
@@ -32,4 +55,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Improve scroll performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

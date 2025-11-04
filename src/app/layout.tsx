@@ -3,7 +3,6 @@ import type {Metadata} from "next";
 import {Figtree} from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {ThemeProvider} from "@/utils/ThemeProvider";
 
 const figtree = Figtree({
     subsets: ["latin"],
@@ -20,18 +19,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning className="scroll-smooth">
             <body className={`${figtree.className} antialiased`}>
-                <ThemeProvider
-                    attribute="data-theme"
-                    defaultTheme="light"
-                    enableSystem={false}>
-                    {/* Header */}
-                    <Header />
-                    {children}
-                    {/* Footer */}
-                    <Footer />
-                </ThemeProvider>
+                {/* Header */}
+                <Header />
+                {children}
+                {/* Footer */}
+                <Footer />
             </body>
         </html>
     );

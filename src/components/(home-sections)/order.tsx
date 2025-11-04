@@ -451,7 +451,7 @@ const OrderForm = () => {
                                         message: e.target.value,
                                     })
                                 }
-                                className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50 min-h-[120px] resize-y"
+                                className="w-full px-4 py-3 bg-white/5 backdrop-blur-sm border-2 border-gray-600/50 rounded-xl text-white placeholder-gray-500 focus:border-[rgb(72,47,234)] focus:bg-white/10 focus:outline-none transition-all shadow-lg hover:border-[rgb(72,47,234)]/50 min-h-[70px] resize-y"
                             />
                         </div>
 
@@ -530,7 +530,7 @@ const OrderForm = () => {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full py-4 bg-[rgb(72,47,234)] text-white font-semibold rounded-lg hover:opacity-90 transition-all hover:scale-[1.02] shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+                            className="w-full mt-3 px-6 py-2 md:py-3 border-2 border-[#5B4BFF] text-white rounded-lg font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] focus:outline-none focus:ring-2 text-center text-lg cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
                             {isSubmitting
                                 ? "Submitting..."
                                 : "Request Callback"}

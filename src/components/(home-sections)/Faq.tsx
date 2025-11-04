@@ -115,12 +115,13 @@ const Faq = () => {
             `}</style>
 
             <section
+                id="faq"
                 ref={sectionRef}
                 className="w-full py-12 md:py-16 lg:py-20 bg-white">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header */}
                     <div
-                        className={`flex flex-col items-center text-center mb-12 md:mb-16 max-w-4xl mx-auto ${
+                        className={`flex flex-col items-center text-center mb-12 md:mb-16 ${
                             isVisible
                                 ? "opacity-100 animate-fade-in-stagger"
                                 : "opacity-0"
@@ -131,7 +132,7 @@ const Faq = () => {
                         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-4">
                             Everything you need to know.
                         </h2>
-                        <p className="text-base md:text-lg text-gray-600">
+                        <p className="text-base md:text-lg text-black">
                             Got questions? We&apos;ve got answers. Here&apos;s
                             everything you need to know before getting started.
                         </p>

@@ -4,6 +4,20 @@ import React, {useEffect, useRef, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "../ProductCard";
+// Check icon component
+const Check = ({className}: {className?: string}) => (
+    <svg
+        className={className}
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+            fillRule="evenodd"
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+            clipRule="evenodd"
+        />
+    </svg>
+);
 
 const products = {
     buy: [
@@ -12,8 +26,8 @@ const products = {
             path: "/buy/t3-small-smart-pos",
             title: "T3 - Small Smart POS",
             subtitle:
-                "T3 Smart Desktop POS — Classic, Stable, and Powerful. A full-size POS terminal for fixed business locations.",
-            price: "$99",
+                "T3 Smart - Desktop POS — Classic, Stable, and Powerful. A full-size POS terminal for fixed business locations.",
+            price: "Kr.99",
             ctaLabel: "Buy Now",
             billingNote: "Billed in one annual payment.",
             features: [
@@ -30,8 +44,9 @@ const products = {
         {
             id: "t1plus-compact-pos",
             path: "/buy/t1plus-compact-pos",
-            title: "T1Plus - Compact All-in-One POS",
-            subtitle: "Perfect for cafés, salons, or mobile businesses.",
+            title: "T1 Plus - Compact All-in-One POS",
+            subtitle:
+                "T1Plus - Perfect for cafés, salons, or mobile businesses.",
             price: "$299",
             ctaLabel: "Buy Now",
             billingNote: "Billed in one annual payment.",
@@ -51,7 +66,7 @@ const products = {
             path: "/buy/t6-dual-pos",
             title: "T6 Dual - Large Dual Screen POS",
             subtitle:
-                "Made for busy stores and restaurants needing a professional setup.",
+                "T6 Dual - Made for busy stores and restaurants needing a professional setup.",
             price: "$399",
             ctaLabel: "Buy Now",
             billingNote: "Billed in one annual payment.",
@@ -281,7 +296,7 @@ export default function Pricing() {
                             Buy or Lease Your POS
                         </h2>
                         <p
-                            className={`text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mb-8 ${
+                            className={`text-base md:text-lg lg:text-xl text-white/80 max-w-3xl mb-8 px-4 ${
                                 isVisible
                                     ? "opacity-100 animate-fade-in-scale"
                                     : "opacity-0"
@@ -318,7 +333,7 @@ export default function Pricing() {
 
                     {/* First Three Product Cards Grid */}
                     <div
-                        className={`grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-[95%] mx-auto mb-6 transition-all duration-300 ${
+                        className={`grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-5 lg:gap-6 max-w-[95%] mx-auto mb-6 transition-all duration-300 ${
                             isTransitioning
                                 ? "opacity-0 scale-95"
                                 : "opacity-100 scale-100"
@@ -405,7 +420,7 @@ export default function Pricing() {
                             </div>
 
                             {/* Image - Left Side */}
-                            <div className="relative w-full md:w-1/2 h-64 md:h-auto z-10 overflow-hidden">
+                            <div className="relative w-full md:w-1/2 z-10 overflow-hidden">
                                 <Image
                                     src={lastProduct.imageSrc}
                                     alt={lastProduct.title}
@@ -426,7 +441,7 @@ export default function Pricing() {
                                 </p>
 
                                 {/* Price */}
-                                <div className="mt-5 text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                                <div className="mt-4 mb-2 text-5xl lg:text-5xl font-bold text-white">
                                     {lastProduct.price}
                                 </div>
 
@@ -449,22 +464,13 @@ export default function Pricing() {
                                     <h3 className="text-lg md:text-xl font-semibold mb-3">
                                         Key Features:
                                     </h3>
-                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-base md:text-lg text-gray-300">
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-md md:text-lg text-white font-medium">
                                         {lastProduct.features.map(
                                             (feature, index) => (
                                                 <li
                                                     key={index}
                                                     className="flex items-start gap-2">
-                                                    <svg
-                                                        className="w-5 h-5 md:w-6 md:h-6 text-[#5B4BFF] mt-0.5 shrink-0"
-                                                        fill="currentColor"
-                                                        viewBox="0 0 20 20">
-                                                        <path
-                                                            fillRule="evenodd"
-                                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                            clipRule="evenodd"
-                                                        />
-                                                    </svg>
+                                                    <Check className="w-5 h-5 md:w-6 md:h-6 text-white shrink-0 mt-0.5" />
                                                     <span>{feature}</span>
                                                 </li>
                                             )

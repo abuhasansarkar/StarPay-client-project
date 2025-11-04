@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, {useState, useEffect, useRef} from "react";
 import Image from "next/image";
@@ -73,6 +73,7 @@ const Works = () => {
             `}</style>
 
             <section
+                id="works"
                 ref={sectionRef}
                 className="w-full py-16 md:py-20 lg:py-20 bg-white overflow-hidden">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,7 +97,7 @@ const Works = () => {
                         {stepsData.map((step, index) => (
                             <div
                                 key={step.id}
-                                className={`bg-white border border-gray-200 hover:border-[rgb(72,47,234)] rounded-3xl transition-all duration-300 hover:shadow-xl hover:scale-[1.02] ${
+                                className={`group bg-white border border-gray-200 hover:border-[rgb(72,47,234)] rounded-3xl transition-all duration-300 hover:shadow-xl ${
                                     isVisible
                                         ? "opacity-100 animate-fade-in-up"
                                         : "opacity-0"
@@ -118,7 +119,7 @@ const Works = () => {
                                             src={step.image}
                                             alt={step.title}
                                             fill
-                                            className="object-cover"
+                                            className="object-cover group-hover:scale-110 transition-all duration-700"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         />
                                     </div>

@@ -174,7 +174,7 @@ export default function ProductCard({
                     />
                 </div>
                 {/* Image */}
-                <div className="relative w-full md:h-72 h-50 z-10 overflow-hidden">
+                <div className="relative w-full md:h-72 h-48 z-10 overflow-hidden">
                     <Image
                         src={imageSrc}
                         alt={title}
@@ -190,12 +190,12 @@ export default function ProductCard({
                     <h2 className="md:text-3xl text-xl font-semibold">
                         {title}
                     </h2>
-                    <p className="text-md text-gray-300 mt-1 leading-relaxed">
+                    <p className="text-lg text-gray-300 mt-1 leading-relaxed">
                         {subtitle}
                     </p>
 
                     {/* Price */}
-                    <div className="mt-5 text-4xl font-bold text-white">
+                    <div className="mt-4 mb-2 text-5xl lg:text-5xl font-bold text-white">
                         {price}
                     </div>
 
@@ -203,27 +203,26 @@ export default function ProductCard({
                     <Link
                         href={`/${type}?device=${id}&type=${type}`}
                         className="mt-3 px-6 py-2 md:py-3 border-2 border-[#5B4BFF] text-white rounded-lg 
-                  font-medium transition-all duration-300
-                 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
+                  font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
                   focus:outline-none focus:ring-2 text-center text-lg">
                         {ctaLabel}
                     </Link>
 
-                    <p className="text-md text-gray-400 mt-2 text-center">
+                    <p className="text-md text-white/60 mt-2 text-center">
                         {billingNote}
                     </p>
 
                     {/* Features */}
                     <div className="mt-6">
-                        <h3 className="text-lg font-semibold mb-3">
+                        <h3 className="text-lg md:text-xl font-semibold mb-3">
                             Key Features:
                         </h3>
-                        <ul className="space-y-2 text-lg text-gray-300">
+                        <ul className="space-y-2 text-md md:text-lg text-white font-medium">
                             {features.map((feature, index) => (
                                 <li
                                     key={index}
                                     className="flex items-start gap-2">
-                                    <Check className="w-7 h-7 text-[#5B4BFF] mt-0.5" />
+                                    <Check className="w-5 h-5 md:w-6 md:h-6 text-white shrink-0 mt-0.5" />
                                     <span>{feature}</span>
                                 </li>
                             ))}
@@ -231,7 +230,7 @@ export default function ProductCard({
                     </div>
 
                     {/* Quote */}
-                    <p className="mt-6 italic text-md text-gray-400 leading-relaxed">
+                    <p className="mt-6 italic text-md md:text-lg text-white/80 leading-relaxed">
                         “{quote}”
                     </p>
                 </div>

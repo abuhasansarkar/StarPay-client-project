@@ -46,6 +46,27 @@ const TestimonialsSlider = () => {
             quote: "The ECR-approved system integrates perfectly with our membership software. No hidden fees means we know exactly what we're paying. Fantastic service!",
             rating: 5,
         },
+        {
+            id: 7,
+            name: "Christensen",
+            role: "Gym Owner",
+            quote: "The ECR-approved system integrates perfectly with our membership software. No hidden fees means we know exactly what we're paying. Fantastic service!",
+            rating: 5,
+        },
+        {
+            id: 8,
+            name: "Sofie Hansen",
+            role: "Gym Owner",
+            quote: "The ECR-approved system integrates perfectly with our membership software. No hidden fees means we know exactly what we're paying. Fantastic service!",
+            rating: 5,
+        },
+        {
+            id: 9,
+            name: "Lars Nielsen",
+            role: "Gym Owner",
+            quote: "The ECR-approved system integrates perfectly with our membership software. No hidden fees means we know exactly what we're paying. Fantastic service!",
+            rating: 5,
+        },
     ];
 
     // Duplicate testimonials for seamless infinite scroll
@@ -79,19 +100,21 @@ const TestimonialsSlider = () => {
                 }
             `}</style>
 
-            <section className="w-full py-12 md:py-16 lg:py-20 bg-white overflow-hidden">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <section
+                id="testimonials"
+                className="w-full py-12 md:py-16 lg:py-20 bg-white overflow-hidden">
+                <div className="mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Badge and Heading */}
-                    <div className="flex flex-col items-center text-center mb-8 md:mb-10">
+                    <div className="flex flex-col items-center text-center mb-8 md:mb-10 max-w-7xl mx-auto">
                         <div className="inline-flex items-center px-5 py-2 rounded-full bg-black text-white text-xs md:text-sm font-medium mb-6">
                             Testimonials
                         </div>
                         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-4">
-                            What others are saying.
+                            Trusted by Businesses Across Denmark
                         </h2>
                         <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl">
-                            Trusted by founders and creatives who value
-                            simplicity and results.
+                            See why cafés, salons, and retailers are choosing
+                            StarPay for faster, simpler payments.
                         </p>
                     </div>
 
@@ -106,7 +129,7 @@ const TestimonialsSlider = () => {
                             {allTestimonials.map((testimonial, index) => (
                                 <div
                                     key={`${testimonial.id}-${index}`}
-                                    className="shrink-0 w-80 sm:w-96 md:w-[420px] bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-shadow duration-300">
+                                    className="shrink-0 w-80 sm:w-96 md:w-[420px] hover:-rotate-10 bg-white border border-black/10 hover:border-[#5B4BFF] rounded-2xl p-6 md:p-8 hover:shadow-lg transition-all duration-300 ">
                                     {/* Star Rating */}
                                     <div className="flex gap-1 mb-4">
                                         {[...Array(testimonial.rating)].map(

@@ -1,4 +1,4 @@
-import OrderPage from "@/components/(home-sections)/order";
+import OrderPage from "@/components/(home-sections)/Order";
 
 export default function LeasePage() {
     return (

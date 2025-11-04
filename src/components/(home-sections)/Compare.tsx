@@ -65,6 +65,7 @@ const Compare = () => {
             `}</style>
 
             <section
+                id="compare"
                 ref={sectionRef}
                 className="w-full py-12 md:py-16 lg:py-20 bg-black">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,13 +91,13 @@ const Compare = () => {
 
                     {/* Main Comparison Table */}
                     <div
-                        className={`max-w-6xl mx-auto mb-8 ${
+                        className={`max-w-6xl mx-auto mb-4 ${
                             isVisible
                                 ? "opacity-100 animate-slide-in-up"
                                 : "opacity-0"
                         }`}
                         style={{animationDelay: "0.2s"}}>
-                        <div className="overflow-x-auto rounded-2xl border border-gray-300">
+                        <div className="overflow-x-auto rounded-2xl border border-white/10">
                             <table className="w-full min-w-[640px]">
                                 {/* Header */}
                                 <thead>
@@ -104,7 +105,7 @@ const Compare = () => {
                                         <th className="px-4 md:px-6 py-4 text-left text-lg md:text-xl font-medium text-white/80 min-w-[180px]">
                                             {/* Empty cell */}
                                         </th>
-                                        <th className="px-4 md:px-6 py-4 text-center text-md md:text-2xl font-bold text-white/ min-w-[120px]">
+                                        <th className="px-4 md:px-6 py-4 text-center text-md md:text-2xl font-bold text-white min-w-[120px]">
                                             StarPay
                                         </th>
                                         <th className="px-4 md:px-6 py-4 text-center text-lg md:text-xl font-semibold text-white/80 min-w-[120px]">
@@ -236,10 +237,10 @@ const Compare = () => {
                     {/* Accordions */}
                     <div className="max-w-6xl mx-auto space-y-4">
                         {/* Buy Terminal Accordion */}
-                        <div className="rounded-2xl border border-gray-300 overflow-hidden">
+                        <div className="rounded-2xl border border-white/10 overflow-hidden">
                             <button
                                 onClick={() => handleAccordionToggle("buy")}
-                                className="w-full cursor-pointer flex items-center justify-between px-3 md:px-5 py-4 bg-gray-100 hover:bg-gray-200 transition-colors">
+                                className="w-full cursor-pointer flex items-center justify-between px-3 md:px-5 py-3 bg-gray-100 hover:bg-gray-200 transition-colors">
                                 <span className="text-lg md:text-xl font-semibold text-gray-900">
                                     Buy terminal:
                                 </span>
@@ -333,10 +334,10 @@ const Compare = () => {
                         </div>
 
                         {/* Lease Terminal Accordion */}
-                        <div className="rounded-2xl border border-gray-300 overflow-hidden">
+                        <div className="rounded-2xl border border-white/10 overflow-hidden">
                             <button
                                 onClick={() => handleAccordionToggle("lease")}
-                                className="w-full cursor-pointer flex items-center justify-between px-3 md:px-5 py-4 bg-gray-100 hover:bg-gray-200 transition-colors">
+                                className="w-full cursor-pointer flex items-center justify-between px-3 md:px-5 py-3 bg-gray-100 hover:bg-gray-200 transition-colors">
                                 <span className="text-lg md:text-xl font-semibold text-gray-900">
                                     Lease terminal:
                                 </span>
@@ -431,7 +432,7 @@ const Compare = () => {
                     </div>
 
                     {/* Bottom CTA Section */}
-                    <div className="mt-10 md:mt-16 text-center max-w-4xl mx-auto">
+                    <div className="mt-10 md:mt-12 text-center max-w-4xl mx-auto">
                         <p className="text-base md:text-lg lg:text-xl text-white mb-8 leading-relaxed">
                             StarPay gives you the freedom to accept every
                             payment — with lower fees, no hidden costs, and full
@@ -440,12 +441,12 @@ const Compare = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <Link
                                 href="#pricing"
-                                className="px-8 py-3 rounded-xl bg-[rgb(72,47,234)] text-white text-md font-semibold hover:opacity-90 transition-all">
+                                className="px-6 py-2 md:py-2.5 border-2 border-[#5B4BFF] text-white rounded-lg font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] focus:outline-none focus:ring-2 text-center text-lg cursor-pointer ">
                                 Compare Models
                             </Link>
                             <Link
                                 href="/buy"
-                                className="px-8 py-3 rounded-xl border border-white text-white text-md font-semibold hover:opacity-90 transition-all">
+                                className="px-8 py-3 rounded-xl border-2 border-white hover:border-[#5B4BFF] text-white text-md font-semibold hover:opacity-90 transition-all">
                                 Order Your POS
                             </Link>
                         </div>
