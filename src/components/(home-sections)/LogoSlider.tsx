@@ -59,18 +59,20 @@ const LogoSlider = () => {
                         {/* Animated Track */}
                         <div
                             className="logo-track gap-4 md:gap-5 lg:gap-6"
-                            style={{"--scroll-speed": "40s"} as React.CSSProperties}>
+                            style={
+                                {"--scroll-speed": "40s"} as React.CSSProperties
+                            }>
                             {allLogos.map((logo, index) => (
                                 <div
                                     key={`${logo.name}-${index}`}
-                                    className="shrink-0 flex items-center justify-center w-24 h-16 sm:w-28 sm:h-18 md:w-32 md:h-20 rounded-xl bg-white border border-gray-300 hover:border-[#482fea] hover:shadow-xl transition-all duration-300 px-4">
+                                    className="shrink-0 flex items-center justify-center w-20 h-12 sm:w-24 sm:h-16 md:w-32 md:h-20 rounded-xl bg-white border border-gray-300 hover:border-[#482fea] hover:shadow-xl transition-all duration-300 ">
                                     <Image
                                         src={logo.path}
                                         alt={logo.name}
                                         width={100}
                                         height={100}
                                         className="w-16 h-8 sm:w-18 sm:h-12 md:w-20 md:h-12 lg:w-24 lg:h-14 object-contain"
-                                        priority={index < 9}
+                                        priority={index < 10}
                                     />
                                 </div>
                             ))}

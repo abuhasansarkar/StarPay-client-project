@@ -69,8 +69,8 @@ const TestimonialsSlider = () => {
         },
     ];
 
-    // Duplicate testimonials for seamless infinite scroll
-    const allTestimonials = [...testimonials, ...testimonials, ...testimonials];
+    // Duplicate testimonials once for seamless infinite scroll
+    const allTestimonials = [...testimonials, ...testimonials];
 
     return (
         <>
@@ -80,12 +80,14 @@ const TestimonialsSlider = () => {
                         transform: translateX(0);
                     }
                     to {
-                        transform: translateX(-33.333%);
+                        transform: translateX(-50%);
                     }
                 }
 
                 .testimonial-scroll-animation {
-                    animation: testimonialSlide 10s linear infinite;
+                    display: flex;
+                    width: max-content;
+                    animation: testimonialSlide 60s linear infinite;
                     will-change: transform;
                 }
 
@@ -95,7 +97,7 @@ const TestimonialsSlider = () => {
 
                 @media (max-width: 768px) {
                     .testimonial-scroll-animation {
-                        animation: testimonialSlide 5s linear infinite;
+                        animation: testimonialSlide 30s linear infinite;
                     }
                 }
             `}</style>
@@ -125,7 +127,7 @@ const TestimonialsSlider = () => {
                         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
                         {/* Animated Slider */}
-                        <div className="flex gap-4 md:gap-6 testimonial-scroll-animation">
+                        <div className="gap-4 md:gap-6 testimonial-scroll-animation">
                             {allTestimonials.map((testimonial, index) => (
                                 <div
                                     key={`${testimonial.id}-${index}`}
