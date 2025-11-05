@@ -103,7 +103,7 @@ const Header = () => {
                             <Link
                                 href="/buy"
                                 className="mx-2 md:mx-4 md:px-6 px-4 py-1 md:py-2 border-2 border-[#5B4BFF] text-white rounded-lg font-bold transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] md:text-md text-sm cursor-pointer  ">
-                                Get Your POS Today
+                                Get POS Today
                             </Link>
 
                             {/* Button 2 */}
@@ -137,13 +137,13 @@ const Header = () => {
                                     href="/buy"
                                     className="block w-full px-4 py-2 rounded-lg bg-[#5B4BFF] text-white font-medium text-center transition-all hover:opacity-90"
                                     onClick={() => setMobileMenuOpen(false)}>
-                                    Get Your POS Today
+                                    Get POS Today
                                 </Link>
                                 <Link
                                     href="/login"
                                     className="block w-full px-4 py-2 rounded-lg border-2 border-white/20 text-white font-medium text-center transition-all hover:opacity-70"
                                     onClick={() => setMobileMenuOpen(false)}>
-                                    Sign In
+                                    LogIn
                                 </Link>
                             </div>
                         </nav>

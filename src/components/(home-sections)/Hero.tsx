@@ -80,10 +80,10 @@ const Hero = () => {
                         </p>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 md:gap-5 pt-4 md:pt-6 opacity-0 animate-fade-in-up delay-300">
+                        <div className="flex flex-col sm:flex-row gap-4 md:gap-5 pt-3 md:pt-4 opacity-0 animate-fade-in-up delay-300">
                             <Link
                                 href="/buy"
-                                className="px-6 py-2 md:py-2.5 border-2 border-[#5B4BFF] text-white rounded-lg 
+                                className="px-6 py-1 md:py-2 border-2 border-[#5B4BFF] text-white rounded-lg 
                   font-medium transition-all duration-300
                  bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
                   focus:outline-none focus:ring-2 text-center text-lg">
@@ -92,7 +92,7 @@ const Hero = () => {
 
                             <Link
                                 href="#pricing"
-                                className="px-6 py-2 md:py-2.5 border-2 border-white hover:border-[#5B4BFF] text-white hover:text-white rounded-lg 
+                                className="px-6 py-1 md:py-2 border-2 border-white hover:border-[#5B4BFF] text-white hover:text-white rounded-lg 
                   font-medium transition-all duration-300
                  hover:text-[#5B4BFF] hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
                   focus:outline-none focus:ring-2 text-center text-lg">
