@@ -456,7 +456,7 @@ export default function Pricing() {
                                 {/* CTA */}
                                 <Link
                                     href={`/${type}?device=${lastProduct.id}&type=${type}`}
-                                    className="mt-3 px-6 py-2 md:py-2 border-2 border-[#5B4BFF] text-white rounded-lg 
+                                    className="mt-3 px-6 py-1 md:py-2 border-2 border-[#5B4BFF] text-white rounded-lg 
                   font-medium transition-all duration-300
                  bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
                   focus:outline-none focus:ring-2 text-center text-lg">

@@ -441,12 +441,12 @@ const Compare = () => {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <Link
                                 href="#pricing"
-                                className="px-6 py-2 md:py-2.5 border-2 border-[#5B4BFF] text-white rounded-lg font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] focus:outline-none focus:ring-2 text-center text-lg cursor-pointer ">
+                                className="px-6 py-1 md:py-2 border-2 border-[#5B4BFF] text-white rounded-lg font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] focus:outline-none focus:ring-2 text-center text-lg cursor-pointer ">
                                 Compare Models
                             </Link>
                             <Link
                                 href="/buy"
-                                className="px-8 py-3 rounded-xl border-2 border-white hover:border-[#5B4BFF] text-white text-md font-semibold hover:opacity-90 transition-all">
+                                className="px-8 py-1 md:py-2 rounded-xl border-2 border-white hover:border-[#5B4BFF] text-white text-md font-semibold hover:opacity-90 transition-all">
                                 Order Your POS
                             </Link>
                         </div>
