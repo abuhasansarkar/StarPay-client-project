@@ -35,7 +35,9 @@ const Hero = () => {
                 }
             `}</style>
 
-            <section id="home" className="relative w-full min-h-[600px] md:min-h-[600px] lg:min-h-[700px] overflow-hidden">
+            <section
+                id="home"
+                className="relative w-full min-h-[600px] md:min-h-[600px] lg:min-h-[700px] overflow-hidden">
                 {/* YouTube Video Background */}
                 <div className="absolute inset-0 w-full h-full">
                     <iframe
@@ -51,10 +53,10 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,1)_0%,rgba(0,0,0,0.5)_100%)]" />
 
                 {/* Content Container */}
-                <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24">
                     <div className="flex flex-col items-center justify-center text-center space-y-6 md:space-y-8">
                         {/* Trust Badge */}
-                        <div className="inline-flex items-center px-4 md:px-6 md:py-2 py-1 rounded-full text-white text-xs md:text-sm font-medium shadow-lg bg-[rgb(72,47,234)] opacity-0 animate-fade-in-up">
+                        <div className="inline-flex items-center px-4 md:px-6 md:py-1.5 py-1 rounded-full text-white text-xs font-medium shadow-lg bg-[rgb(72,47,234)] opacity-0 animate-fade-in-up">
                             Trusted in Denmark, Sweden, Norway and Finland
                         </div>
 
@@ -90,9 +92,9 @@ const Hero = () => {
 
                             <Link
                                 href="#pricing"
-                                className="px-6 py-2 md:py-2.5 border-2 border-white hover:border-black text-white rounded-lg 
+                                className="px-6 py-2 md:py-2.5 border-2 border-white hover:border-[#5B4BFF] text-white hover:text-white rounded-lg 
                   font-medium transition-all duration-300
-                  hover:bg-black hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
+                 hover:text-[#5B4BFF] hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
                   focus:outline-none focus:ring-2 text-center text-lg">
                                 Compare pricing
                             </Link>

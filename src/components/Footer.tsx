@@ -94,7 +94,7 @@ const Footer = () => {
                 }
             `}</style>
 
-            <footer className="relative w-full overflow-hidden gradient-bg bg-black">
+            <footer className="relative w-full overflow-hidden gradient-bg  bg-black">
                 {/* Animated Gradient Orbs */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
                     {/* Orb 1 - Purple (Top/Left) */}
@@ -149,7 +149,7 @@ const Footer = () => {
                     />
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 lg:py-20 lg:px-0 ">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 lg:py-20 lg:px-8">
                     {/* Main Content */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 mb-12">
                         {/* Brand Section */}

@@ -236,7 +236,7 @@ const OrderForm = () => {
                         }}
                     />
                 </div>
-                <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header */}
                     <div
                         className={`flex flex-col items-center text-center mb-12 md:mb-16 max-w-4xl mx-auto ${
@@ -244,7 +244,7 @@ const OrderForm = () => {
                                 ? "opacity-100 animate-fade-in-up"
                                 : "opacity-0"
                         }`}>
-                        <div className="inline-flex items-center px-5 py-2 rounded-full bg-[rgb(72,47,234)] text-white text-xs md:text-sm font-medium mb-6">
+                        <div className="inline-flex items-center px-5 py-1 md:py-1.5 rounded-full bg-[rgb(72,47,234)] text-white text-xs font-medium mb-6">
                             Contact
                         </div>
                         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4">

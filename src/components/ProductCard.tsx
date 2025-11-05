@@ -187,7 +187,7 @@ export default function ProductCard({
 
                 {/* Content */}
                 <div className="p-3 md:p-6 flex flex-col grow relative z-10">
-                    <h2 className="md:text-3xl text-xl font-semibold">
+                    <h2 className="md:text-4xl text-2xl font-semibold">
                         {title}
                     </h2>
                     <p className="text-lg text-gray-300 mt-1 leading-relaxed">
@@ -195,14 +195,14 @@ export default function ProductCard({
                     </p>
 
                     {/* Price */}
-                    <div className="mt-4 mb-2 text-5xl lg:text-5xl font-bold text-white">
+                    <div className="mt-4 mb-2 text-3xl lg:text-4xl font-bold text-white">
                         {price}
                     </div>
 
                     {/* CTA */}
                     <Link
                         href={`/${type}?device=${id}&type=${type}`}
-                        className="mt-3 px-6 py-2 md:py-3 border-2 border-[#5B4BFF] text-white rounded-lg 
+                        className="mt-3 px-6 py-2 md:py-2 border-2 border-[#5B4BFF] text-white rounded-lg 
                   font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
                   focus:outline-none focus:ring-2 text-center text-lg">
                         {ctaLabel}

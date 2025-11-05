@@ -14,16 +14,19 @@ const Header = () => {
     ];
 
     // Smooth scroll handler for hash links
-    const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const handleSmoothScroll = (
+        e: React.MouseEvent<HTMLAnchorElement>,
+        href: string
+    ) => {
         // Only handle hash links on the same page
-        if (href.startsWith('/#') || href.startsWith('#')) {
+        if (href.startsWith("/#") || href.startsWith("#")) {
             e.preventDefault();
-            const targetId = href.replace('/#', '').replace('#', '');
+            const targetId = href.replace("/#", "").replace("#", "");
             const element = document.getElementById(targetId);
             if (element) {
                 element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
+                    behavior: "smooth",
+                    block: "start",
                 });
             }
         }
@@ -31,7 +34,7 @@ const Header = () => {
 
     return (
         <header className="sticky top-0 z-50 w-full border-b transition-colors duration-300 bg-black py-2">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     {/* Logo */}
                     <div className="">
@@ -50,7 +53,9 @@ const Header = () => {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    onClick={(e) => handleSmoothScroll(e, link.href)}
+                                    onClick={(e) =>
+                                        handleSmoothScroll(e, link.href)
+                                    }
                                     className="text-md font-medium transition-all duration-200 text-white hover:text-[#5B4BFF] active:scale-95">
                                     {link.name}
                                 </Link>
@@ -97,15 +102,15 @@ const Header = () => {
                             {/* Button 1 */}
                             <Link
                                 href="/buy"
-                                className="mx-4 px-6 py-2 md:py-1 border-2 border-[#5B4BFF] text-white rounded-lg font-medium transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] focus:outline-none focus:ring-2 text-center text-lg cursor-pointer disabled:opacity-50 ">
+                                className="mx-2 md:mx-4 md:px-6 px-4 py-1 md:py-2 border-2 border-[#5B4BFF] text-white rounded-lg font-bold transition-all duration-300 bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)] md:text-md text-sm cursor-pointer  ">
                                 Get Your POS Today
                             </Link>
 
                             {/* Button 2 */}
                             <Link
                                 href="/login"
-                                className="text-lg px-6 py-1 border-2 border-white/20 text-white rounded-lg font-medium transition-all duration-300 hover:bg-black hover:text-white hover:border-[#5B4BFF]">
-                                Sign In
+                                className="px-2 md:px-4 py-1 md:py-2 border-2 border-white/20 text-white rounded-lg font-bold transition-all duration-300 hover:bg-black hover:text-white hover:border-[#5B4BFF] text-sm md:text-md cursor-pointer">
+                                LogIn
                             </Link>
                         </div>
                     </div>

@@ -106,7 +106,7 @@ const TestimonialsSlider = () => {
                 <div className="mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Badge and Heading */}
                     <div className="flex flex-col items-center text-center mb-8 md:mb-10 max-w-7xl mx-auto">
-                        <div className="inline-flex items-center px-5 py-2 rounded-full bg-black text-white text-xs md:text-sm font-medium mb-6">
+                        <div className="inline-flex items-center px-5 py-1 md:py-1.5 rounded-full bg-black text-white text-xs font-medium mb-6">
                             Testimonials
                         </div>
                         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-4">

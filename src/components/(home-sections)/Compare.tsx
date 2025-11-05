@@ -68,7 +68,7 @@ const Compare = () => {
                 id="compare"
                 ref={sectionRef}
                 className="w-full py-12 md:py-16 lg:py-20 bg-black">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Heading */}
                     <div
                         className={`flex flex-col items-center text-center mb-10 md:mb-12 max-w-5xl mx-auto ${
@@ -91,7 +91,7 @@ const Compare = () => {
 
                     {/* Main Comparison Table */}
                     <div
-                        className={`max-w-6xl mx-auto mb-4 ${
+                        className={`max-w-7xl mx-auto mb-4 ${
                             isVisible
                                 ? "opacity-100 animate-slide-in-up"
                                 : "opacity-0"
@@ -235,7 +235,7 @@ const Compare = () => {
                     </div>
 
                     {/* Accordions */}
-                    <div className="max-w-6xl mx-auto space-y-4">
+                    <div className="max-w-7xl mx-auto space-y-4">
                         {/* Buy Terminal Accordion */}
                         <div className="rounded-2xl border border-white/10 overflow-hidden">
                             <button

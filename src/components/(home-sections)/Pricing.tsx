@@ -106,17 +106,19 @@ const products = {
         {
             id: "t3-small-smart-pos",
             path: "/lease/t3-small-smart-pos",
-            title: "T3 - Small Smart POS (Lease Option)",
+            title: "T3 - Small Smart POS",
             subtitle:
                 "T3 Smart Desktop POS — Classic, Stable, and Powerful. A full-size POS terminal for fixed business locations.",
             price: "$9.99/mo",
             ctaLabel: "Lease Now",
             billingNote: "Monthly lease plan with full support.",
             features: [
-                "Includes maintenance and support",
-                "Flexible upgrade options",
-                "Same great performance with lower upfront cost",
-                "Ideal for small and growing businesses",
+                "4” main touchscreen with customer-facing display option",
+                "Powerful processor for smooth operation",
+                "Built-in thermal printer, QR scanner, and card reader",
+                "Supports ECR integration and accounting automation",
+                "Wired and wireless connectivity (LAN/Wi-Fi/4G)",
+                "Perfect for supermarkets, restaurants, and offices",
             ],
             quote: "Start strong without heavy investment.",
             imageSrc: "/works/works (1).avif",
@@ -124,16 +126,18 @@ const products = {
         {
             id: "t1plus-compact-pos",
             path: "/lease/t1plus-compact-pos",
-            title: "T1Plus - Compact All-in-One POS (Lease Option)",
+            title: "T1Plus - Compact All-in-One POS",
             subtitle: "Perfect for cafés, salons, or mobile businesses.",
             price: "$19.99/mo",
             ctaLabel: "Lease Now",
             billingNote: "Monthly lease plan with full support.",
             features: [
-                "Includes hardware warranty and service",
-                "Quick swap-out for hardware issues",
-                "Affordable monthly plan with zero deposit",
-                "Ideal for short-term or mobile operations",
+                "5.5” HD touchscreen — compact and lightweight design",
+                "Built-in printer and barcode scanner",
+                "Supports MobilePay, Cards, and Crypto",
+                "4G / Wi-Fi / Bluetooth connectivity",
+                "Long-life battery for all-day use",
+                "Ideal for countertop or handheld operation",
             ],
             quote: "Stay mobile, pay as you grow.",
             imageSrc: "/works/works (2).avif",
@@ -141,17 +145,19 @@ const products = {
         {
             id: "t6-dual-pos",
             path: "/lease/t6-dual-pos",
-            title: "T6 Dual - Large Dual Screen POS (Lease Option)",
+            title: "T6 Dual - Large Dual Screen POS",
             subtitle:
                 "Made for busy stores and restaurants needing a professional setup.",
             price: "$29.99/mo",
             ctaLabel: "Lease Now",
             billingNote: "Monthly lease plan with full support.",
             features: [
-                "Professional dual-screen POS setup",
-                "Maintenance and software updates included",
-                "Fast replacement and upgrade service",
-                "Ideal for restaurants, cafés, and retail",
+                "Dual displays (merchant + customer screen) for instant payment confirmation",
+                "Sleek Android interface with intuitive checkout",
+                "Integrated printer and NFC card reader",
+                "Supports MobilePay, Visa, Mastercard, Crypto",
+                "High-speed Wi-Fi and Ethernet for stable connections",
+                "Great for cafés, retail shops, and service desks",
             ],
             quote: "Lease premium performance without high upfront costs.",
             imageSrc: "/works/works (3).avif",
@@ -159,17 +165,19 @@ const products = {
         {
             id: "telpo-c9-dual-screen-cash-register",
             path: "/lease/telpo-c9-dual-screen-cash-register",
-            title: "Telpo C9 - Dual Screen Cash Register (Lease Option)",
+            title: "Telpo C9 - Dual Screen Cash Register",
             subtitle:
                 "Powerful, elegant, and built for high-volume retail and hospitality.",
             price: "$39.99/mo",
             ctaLabel: "Lease Now",
             billingNote: "Monthly lease plan with full support.",
             features: [
-                "Zero upfront cost, full maintenance coverage",
-                "Ideal for large retail environments",
-                "Automatic software updates and support",
-                "Flexible upgrade or return policy",
+                "15.6” Full HD main touchscreen + 10.1” customer display",
+                "Accepts MobilePay, Visa, Mastercard & Crypto",
+                "Integrated printer and barcode scanner support",
+                "High-performance Android OS for smooth checkout",
+                "Multiple connectivity options — Wi-Fi, LAN, Bluetooth, USB",
+                "Ideal for shops, cafés, and restaurants needing professional counters",
             ],
             quote: "Scale your business with minimal risk.",
             imageSrc: "/works/works (4).avif",
@@ -279,7 +287,7 @@ export default function Pricing() {
                     {/* Header */}
                     <div className="flex flex-col items-center text-center mb-12 md:mb-16">
                         <div
-                            className={`inline-flex items-center px-5 py-2 rounded-full bg-[rgb(72,47,234)] text-white text-xs md:text-sm font-medium mb-6 ${
+                            className={`inline-flex items-center px-5 py-1 md:py-1.5 rounded-full bg-[rgb(72,47,234)] text-white text-xs font-medium mb-6 ${
                                 isVisible
                                     ? "opacity-100 animate-fade-in-scale"
                                     : "opacity-0"
@@ -333,7 +341,7 @@ export default function Pricing() {
 
                     {/* First Three Product Cards Grid */}
                     <div
-                        className={`grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-5 lg:gap-6 max-w-[95%] mx-auto mb-6 transition-all duration-300 ${
+                        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 mx-auto mb-6 transition-all duration-300 ${
                             isTransitioning
                                 ? "opacity-0 scale-95"
                                 : "opacity-100 scale-100"
@@ -356,7 +364,7 @@ export default function Pricing() {
 
                     {/* Last Product - Full Width Horizontal Layout */}
                     <div
-                        className={`max-w-[95%] mx-auto transition-all duration-300 ${
+                        className={`mx-auto transition-all duration-300 ${
                             isTransitioning
                                 ? "opacity-0 scale-95"
                                 : isVisible
@@ -433,7 +441,7 @@ export default function Pricing() {
 
                             {/* Content - Right Side */}
                             <div className="p-6 md:p-8 flex flex-col grow md:w-1/2 relative z-10">
-                                <h2 className="text-xl md:text-3xl lg:text-4xl font-semibold">
+                                <h2 className="text-2xl lg:text-4xl font-semibold">
                                     {lastProduct.title}
                                 </h2>
                                 <p className="text-base md:text-lg lg:text-xl text-gray-300 mt-2 leading-relaxed">
@@ -441,14 +449,14 @@ export default function Pricing() {
                                 </p>
 
                                 {/* Price */}
-                                <div className="mt-4 mb-2 text-5xl lg:text-5xl font-bold text-white">
+                                <div className="mt-4 mb-2 text-4xl lg:text-5xl font-bold text-white">
                                     {lastProduct.price}
                                 </div>
 
                                 {/* CTA */}
                                 <Link
                                     href={`/${type}?device=${lastProduct.id}&type=${type}`}
-                                    className="mt-3 px-6 py-2 md:py-3 border-2 border-[#5B4BFF] text-white rounded-lg 
+                                    className="mt-3 px-6 py-2 md:py-2 border-2 border-[#5B4BFF] text-white rounded-lg 
                   font-medium transition-all duration-300
                  bg-[#5B4BFF] hover:bg-transparent hover:border-[#5B4BFF] hover:text-white hover:shadow-[0_0_15px_rgba(91,75,255,0.6)]
                   focus:outline-none focus:ring-2 text-center text-lg">
